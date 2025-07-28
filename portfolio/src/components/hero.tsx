@@ -54,10 +54,33 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-base sm:text-lg text-foreground/70 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
           >
-            I create beautiful, functional, and user-friendly web applications 
-            using modern technologies. Passionate about clean code, great design, 
-            and delivering exceptional user experiences.
+            Passionate Full-Stack Developer specializing in creating exceptional digital experiences. 
+            I transform ideas into scalable web applications using cutting-edge technologies like React, 
+            Next.js, and Node.js. My focus is on delivering clean, efficient code and intuitive user interfaces 
+            that make a real impact.
           </motion.p>
+
+          {/* Value Proposition */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 px-4"
+          >
+            {[
+              "🚀 Fast Development",
+              "💡 Creative Solutions", 
+              "📱 Mobile-First Design",
+              "⚡ Performance Focused"
+            ].map((item) => (
+              <span 
+                key={item}
+                className="px-3 py-1 bg-secondary/50 text-foreground rounded-full text-xs sm:text-sm backdrop-blur-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
@@ -66,13 +89,37 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-4"
           >
-            <button className="px-6 sm:px-8 py-3 sm:py-4 bg-foreground text-background rounded-lg font-semibold hover:bg-foreground/90 transition-colors text-sm sm:text-base min-h-[48px] touch-manipulation">
+            <motion.button 
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-48 px-6 sm:px-8 py-3 sm:py-4 bg-foreground text-background rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base min-h-[48px] touch-manipulation shadow-lg backdrop-blur-sm"
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               View My Work
-            </button>
-            <button className="px-6 sm:px-8 py-3 sm:py-4 border border-foreground/20 text-foreground rounded-lg font-semibold hover:bg-foreground/5 transition-colors flex items-center justify-center gap-2 text-sm sm:text-base min-h-[48px] touch-manipulation">
-              <Download size={18} />
-              Download CV
-            </button>
+            </motion.button>
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="w-full sm:w-48 px-6 sm:px-8 py-3 sm:py-4 bg-foreground text-background rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base min-h-[48px] touch-manipulation shadow-lg backdrop-blur-sm"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Download size={18} />
+              </motion.div>
+              Download Resume
+            </motion.a>
           </motion.div>
 
           {/* Social Links */}

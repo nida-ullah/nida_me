@@ -8,10 +8,15 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function Header() {
   const [mounted, setMounted] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     setMounted(true)
+    
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const navItems = [
@@ -25,6 +30,16 @@ export default function Header() {
     const element = document.querySelector(href)
     element?.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
+  }
+
+  const handleLogoClick = () => {
+    // If we're already at the top (within 100px), refresh the page
+    if (scrollY < 100) {
+      window.location.reload()
+    } else {
+      // Otherwise, smoothly scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }
   }
 
   const toggleTheme = () => {
@@ -55,13 +70,17 @@ export default function Header() {
       <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div
+          <motion.button
+            onClick={handleLogoClick}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-xl sm:text-2xl font-bold text-foreground"
+            className="text-xl sm:text-2xl font-bold text-foreground hover:text-foreground/80 transition-colors cursor-pointer focus:outline-none"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            title={scrollY < 100 ? "Refresh page" : "Go to top"}
           >
             NUK
-          </motion.div>
+          </motion.button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
