@@ -60,7 +60,7 @@ export default function Contact() {
       
       // Reset success state after 5 seconds
       setTimeout(() => setFormState('idle'), 5000)
-    } catch (error) {
+    } catch {
       setFormState('error')
       setTimeout(() => setFormState('idle'), 5000)
     }
