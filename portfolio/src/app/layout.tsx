@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "John Doe - Portfolio",
+  title: "NIDA ULLAH - Portfolio",
   description: "Full Stack Developer & UI/UX Designer",
 };
 
@@ -20,10 +20,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+          defaultTheme="light"
+          enableSystem={false}
+          themes={["light", "dark"]}
         >
+          {/* Floating background orbs */}
+          <div className="bg-orb bg-orb-1"></div>
+          <div className="bg-orb bg-orb-2"></div>
+          <div className="bg-orb bg-orb-3"></div>
           {children}
         </ThemeProvider>
       </body>

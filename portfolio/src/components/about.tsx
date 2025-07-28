@@ -65,20 +65,20 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             About Me
           </h2>
-          <p className="text-lg text-foreground/80 leading-relaxed">
-            I&apos;m a passionate full-stack developer with 5+ years of experience creating 
+          <p className="text-base sm:text-lg text-foreground/80 leading-relaxed px-4">
+            I&apos;m a passionate full-stack developer with 1+ year of experience creating 
             digital experiences that make a difference. I love turning complex problems 
             into simple, beautiful, and intuitive solutions. When I&apos;m not coding, you&apos;ll 
             find me exploring new technologies, contributing to open source, or designing 
@@ -91,7 +91,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {skills.map((skill) => (
             <motion.div
@@ -99,14 +99,14 @@ export default function About() {
               variants={itemVariants}
               className="group"
             >
-              <div className="p-6 rounded-xl bg-background border border-border hover:border-foreground/20 transition-all duration-300 h-full">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${skill.color} p-3 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="p-4 sm:p-6 rounded-xl glass-effect hover:bg-background/50 transition-all duration-300 h-full border-0 shadow-lg hover:shadow-xl backdrop-blur-sm touch-manipulation">
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-r ${skill.color} p-2 sm:p-3 mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                   <skill.icon className="w-full h-full text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
                   {skill.title}
                 </h3>
-                <p className="text-foreground/70">
+                <p className="text-sm sm:text-base text-foreground/70">
                   {skill.description}
                 </p>
               </div>
@@ -120,19 +120,19 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
+          className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16"
         >
           {[
-            { number: "50+", label: "Projects Completed" },
-            { number: "5+", label: "Years Experience" },
+            { number: "5+", label: "Projects Completed" },
+            { number: "1+", label: "Years Experience" },
             { number: "100%", label: "Client Satisfaction" },
             { number: "24/7", label: "Support Available" }
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-1 sm:mb-2">
                 {stat.number}
               </div>
-              <div className="text-foreground/70">
+              <div className="text-sm sm:text-base text-foreground/70">
                 {stat.label}
               </div>
             </div>

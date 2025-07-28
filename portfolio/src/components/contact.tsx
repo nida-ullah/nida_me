@@ -30,8 +30,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      value: "john@example.com",
-      href: "mailto:john@example.com"
+      value: "nida@example.com",
+      href: "mailto:nida@example.com"
     },
     {
       icon: Phone,
@@ -42,7 +42,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Your City, Country",
       href: "#"
     }
   ]
@@ -54,25 +54,25 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             Get In Touch
           </h2>
-          <p className="text-lg text-foreground/80 leading-relaxed">
+          <p className="text-base sm:text-lg text-foreground/80 leading-relaxed px-4">
             I&apos;m always open to discussing new opportunities, interesting projects, 
             or just having a chat about technology and design. Let&apos;s connect!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -80,12 +80,12 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-background p-8 rounded-xl border border-border">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+            <div className="glass-effect p-6 sm:p-8 rounded-xl border-0 shadow-lg backdrop-blur-sm">
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6">
                 Send me a message
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
                   <label 
                     htmlFor="name" 
@@ -100,7 +100,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-lg focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-colors"
+                    className="w-full px-4 py-3 sm:py-4 bg-secondary/50 border border-border rounded-lg focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-colors text-foreground placeholder-foreground/50 min-h-[48px] touch-manipulation"
                     placeholder="Your Name"
                   />
                 </div>
@@ -119,7 +119,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-lg focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-colors"
+                    className="w-full px-4 py-3 sm:py-4 bg-secondary/50 border border-border rounded-lg focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-colors text-foreground placeholder-foreground/50 min-h-[48px] touch-manipulation"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -137,17 +137,17 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-lg focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-colors resize-none"
+                    rows={4}
+                    className="w-full px-4 py-3 sm:py-4 bg-secondary/50 border border-border rounded-lg focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-colors resize-none text-foreground placeholder-foreground/50 touch-manipulation"
                     placeholder="Your message..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-8 py-3 bg-foreground text-background rounded-lg font-semibold hover:bg-foreground/90 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-foreground text-background rounded-lg font-semibold hover:bg-foreground/90 transition-colors text-sm sm:text-base min-h-[48px] touch-manipulation"
                 >
-                  <Send size={20} />
+                  <Send size={18} />
                   Send Message
                 </button>
               </form>
@@ -160,26 +160,27 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6">
                 Contact Information
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {contactInfo.map((info) => (
                   <a
                     key={info.title}
                     href={info.href}
-                    className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-foreground/20 transition-colors group"
+                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-effect rounded-lg border-0 hover:bg-background/30 transition-colors group touch-manipulation min-h-[64px]"
                   >
-                    <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center group-hover:bg-foreground/10 transition-colors">
-                      <info.icon size={24} className="text-foreground" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/50 rounded-lg flex items-center justify-center group-hover:bg-foreground/10 transition-colors flex-shrink-0">
+                      <info.icon size={20} className="sm:hidden text-foreground" />
+                      <info.icon size={24} className="hidden sm:block text-foreground" />
                     </div>
-                    <div>
-                      <h4 className="font-medium text-foreground">{info.title}</h4>
-                      <p className="text-foreground/70">{info.value}</p>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-medium text-foreground text-sm sm:text-base">{info.title}</h4>
+                      <p className="text-foreground/70 text-sm sm:text-base truncate">{info.value}</p>
                     </div>
                   </a>
                 ))}
@@ -188,32 +189,33 @@ export default function Contact() {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-xl font-semibold text-foreground mb-4">
+              <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-3 sm:mb-4">
                 Follow Me
               </h4>
-              <div className="flex gap-4">
+              <div className="flex gap-3 sm:gap-4">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-background border border-border rounded-lg flex items-center justify-center hover:border-foreground/20 hover:bg-foreground/5 transition-colors"
+                    className="w-12 h-12 sm:w-14 sm:h-14 glass-effect border-0 rounded-lg flex items-center justify-center hover:bg-background/30 transition-colors touch-manipulation"
                     aria-label={social.label}
                   >
-                    <social.icon size={24} />
+                    <social.icon size={20} className="sm:hidden" />
+                    <social.icon size={24} className="hidden sm:block" />
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Available for work */}
-            <div className="p-6 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl border border-green-500/20">
+            <div className="p-4 sm:p-6 glass-effect rounded-xl border border-green-500/20 bg-green-500/5">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="font-semibold text-foreground">Available for work</span>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                <span className="font-semibold text-foreground text-sm sm:text-base">Available for work</span>
               </div>
-              <p className="text-foreground/70">
+              <p className="text-foreground/70 text-sm sm:text-base">
                 I&apos;m currently available for freelance projects and full-time opportunities.
               </p>
             </div>
