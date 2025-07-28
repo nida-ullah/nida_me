@@ -1,0 +1,32 @@
+.header {
+  background-color: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.links a {
+  margin-left: 1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--primary);
+}
